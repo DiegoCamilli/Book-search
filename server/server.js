@@ -5,16 +5,11 @@ const { authMiddleware } = require('./utils/auth')
 const { typeDefs, resolvers } = require('./schema/index')
 const db = require('./config/connection')
 
-const app = express()
-const PORT = process.env.PORT || 3001
-
-// const dotenv = require("dotenv")
-// dotenv.config()
-
+const PORT = process.env.PORT || 3001;
+const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: authMiddleware,
 });
 
 app.use(express.urlencoded({ extended: false }));
@@ -28,6 +23,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
+
+// Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
@@ -39,4 +36,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
     })
   })
   };
-startApolloServer(typeDefs, resolvers);
+  
+
+  startApolloServer(typeDefs, resolvers);
+ 
