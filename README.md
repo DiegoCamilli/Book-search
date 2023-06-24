@@ -3,7 +3,7 @@
   ## Description
   This is a full stack MERN(Mongo. Express. REACT.Node) app that was refactored from using restful API to use Graph QL queries. This app is a book search and save app. Users can keep track of their searched books and all its info for foture reference.
 
-  Deployed link: 
+  Deployed link: https://dcbooksearch-d715f1f176bd.herokuapp.com/
   
   
   ![app view](./client/images/appview.png)
